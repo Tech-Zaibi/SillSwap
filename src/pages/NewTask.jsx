@@ -36,7 +36,7 @@ export default function NewTask() {
   }
 
   return (
-    <div className="container page">
+    <div className="site-container page">
       <form className="card form-card" onSubmit={submit} noValidate>
         <h2>Post a task</h2>
         <Field label="Title" id="title" error={errors.title}><input id="title" className={cls('title')} value={form.title} onChange={set('title')} /></Field>

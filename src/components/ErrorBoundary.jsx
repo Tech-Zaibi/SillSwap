@@ -8,7 +8,7 @@ export default class ErrorBoundary extends Component {
   render() {
     if (!this.state.failed) return this.props.children;
     return (
-      <div className="container page">
+      <div className="site-container page">
         <div className="alert error">
           <h2>Something went wrong</h2>
           <p>The page crashed. Reload to try again.</p>

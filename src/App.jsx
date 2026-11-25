@@ -23,7 +23,7 @@ function Layout() {
       <Navbar />
       <main><Outlet /></main>
       <footer className="footer">
-        <div className="container">SkillSwap: a software construction lab project. Tokens here are virtual and have no cash value.</div>
+        <div className="site-container">SkillSwap: a software construction lab project. Tokens here are virtual and have no cash value.</div>
       </footer>
     </>
   );

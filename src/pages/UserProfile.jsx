@@ -17,11 +17,11 @@ export default function UserProfile() {
   }, [id]);
 
   if (loading && !data) return <Loading />;
-  if (error) return <div className="container page"><ErrorBox error={error} /></div>;
+  if (error) return <div className="site-container page"><ErrorBox error={error} /></div>;
   const { person, reviews, rating, completed } = data;
 
   return (
-    <div className="container page">
+    <div className="site-container page">
       <div className="card" style={{ marginBottom: '1.5rem' }}>
         <div className="row" style={{ marginBottom: '.75rem' }}>
           <Avatar user={person} size={72} />

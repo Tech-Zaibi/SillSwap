@@ -33,7 +33,7 @@ export default function TaskDetails() {
   const [rev, setRev] = useState({ rating: 0, comment: '', error: '' });
 
   if (loading && !task) return <Loading />;
-  if (error) return <div className="container page"><ErrorBox error={error} /></div>;
+  if (error) return <div className="site-container page"><ErrorBox error={error} /></div>;
 
   const isRequester = task.requesterId === user.id;
   const isProvider = task.providerId === user.id;
@@ -124,7 +124,7 @@ export default function TaskDetails() {
   const notEnough = user.wallet.available < task.reward;
 
   return (
-    <div className="container page">
+    <div className="site-container page">
       <div className="page-head">
         <div>
           <div className="row"><span className="tag">{task.category}</span><StatusBadge status={task.status} /></div>
