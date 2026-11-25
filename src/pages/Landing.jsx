@@ -11,7 +11,7 @@ export default function Landing() {
   return (
     <>
       <section className="hero">
-        <div className="container">
+        <div className="site-container">
           <h1>Get help with your skills, not your wallet.</h1>
           <p className="lead">
             Finish a small task for someone, earn Skill Tokens, then spend them to hire another
@@ -39,7 +39,7 @@ export default function Landing() {
         </div>
       </section>
 
-      <section className="section container">
+      <section className="section site-container">
         <h2>How it works</h2>
         <ol className="steps">
           <li><h3>Post or pick a task</h3><p className="muted">Describe what you need, or browse tasks that match your skills.</p></li>
@@ -49,7 +49,7 @@ export default function Landing() {
         </ol>
       </section>
 
-      <section className="section container">
+      <section className="section site-container">
         <div className="page-head"><h2>Open tasks right now</h2><Link to={user ? '/tasks' : '/login'} className="btn btn-ghost">See all tasks</Link></div>
         <div className="grid cols-3">
           {(tasks || []).slice(0, 3).map((t) => <TaskCard key={t.id} task={t} />)}

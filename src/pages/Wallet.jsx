@@ -17,11 +17,11 @@ export default function Wallet() {
   const { wallet } = user;
 
   if (loading && !data) return <Loading />;
-  if (error) return <div className="container page"><ErrorBox error={error} /></div>;
+  if (error) return <div className="site-container page"><ErrorBox error={error} /></div>;
   const rows = type ? data.filter((t) => t.type === type) : data;
 
   return (
-    <div className="container page">
+    <div className="site-container page">
       <div className="page-head"><h1 style={{ fontSize: '2rem' }}>Wallet</h1></div>
       <div className="grid stats" style={{ marginBottom: '1rem' }}>
         <div className="card stat"><div className="num">{wallet.available}</div><div className="label">Available to spend</div></div>

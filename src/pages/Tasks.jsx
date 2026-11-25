@@ -13,7 +13,7 @@ export default function Tasks() {
   const set = (key) => (e) => setFilters({ ...filters, [key]: e.target.value });
 
   return (
-    <div className="container page">
+    <div className="site-container page">
       <div className="page-head"><h1 style={{ fontSize: '2rem' }}>Browse tasks</h1></div>
 
       <div className="filters" role="search">

@@ -45,7 +45,7 @@ export default function Profile() {
   }
 
   return (
-    <div className="container page">
+    <div className="site-container page">
       <form className="card form-card" onSubmit={save} noValidate>
         <h2>Your profile</h2>
         <p className="muted">Signed in as {user.email}</p>

@@ -22,7 +22,7 @@ export default function MyTasks() {
   const { data, loading, error } = useLoad(() => listMyTasks(user.id), [user.id, tick]);
 
   if (loading && !data) return <Loading />;
-  if (error) return <div className="container page"><ErrorBox error={error} /></div>;
+  if (error) return <div className="site-container page"><ErrorBox error={error} /></div>;
 
   // Active tabs show only unfinished tasks. Finished ones go to History.
   const everything = new Map();
@@ -39,7 +39,7 @@ export default function MyTasks() {
   const current = TABS.find((t) => t.key === tab);
 
   return (
-    <div className="container page">
+    <div className="site-container page">
       <div className="page-head"><h1 style={{ fontSize: '2rem' }}>My tasks</h1><Link to="/tasks/new" className="btn btn-primary">Post a task</Link></div>
       <div className="tabs" role="tablist">
         {TABS.map((t) => (

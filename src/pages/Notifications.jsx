@@ -11,7 +11,7 @@ export default function Notifications() {
   const { data, loading, error, reload } = useLoad(() => listNotifications(user.id), [user.id, tick]);
 
   if (loading && !data) return <Loading />;
-  if (error) return <div className="container page"><ErrorBox error={error} /></div>;
+  if (error) return <div className="site-container page"><ErrorBox error={error} /></div>;
   const unread = data.filter((n) => !n.read).length;
 
   async function open(n) {
@@ -27,7 +27,7 @@ export default function Notifications() {
   }
 
   return (
-    <div className="container page">
+    <div className="site-container page">
       <div className="page-head">
         <h1 style={{ fontSize: '2rem' }}>Notifications</h1>
         {unread > 0 && <button className="btn btn-ghost" onClick={readAll}>Mark all as read</button>}

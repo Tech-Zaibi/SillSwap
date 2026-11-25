@@ -18,7 +18,7 @@ export default function Dashboard() {
   }), [user.id, tick]);
 
   if (loading && !data) return <Loading />;
-  if (error) return <div className="container page"><ErrorBox error={error} /></div>;
+  if (error) return <div className="site-container page"><ErrorBox error={error} /></div>;
 
   // Combine all my tasks (remove duplicates), keep only unfinished ones.
   const unique = new Map();
@@ -29,7 +29,7 @@ export default function Dashboard() {
   const { wallet } = user;
 
   return (
-    <div className="container page">
+    <div className="site-container page">
       <div className="page-head">
         <div>
           <h1 style={{ fontSize: '2rem' }}>Hi, {user.name.split(' ')[0]}</h1>

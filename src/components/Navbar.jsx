@@ -26,7 +26,7 @@ export default function Navbar() {
 
   return (
     <header className="navbar">
-      <div className="container">
+      <div className="site-container">
         <Link to="/" className="brand"><span className="brand-coin" />SkillSwap</Link>
         <nav className="nav-links" aria-label="Main">
           {user?.role === 'user' && (

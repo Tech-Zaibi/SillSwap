@@ -18,7 +18,7 @@ const TABS = ['Overview', 'Users', 'Tasks', 'Disputes', 'Transactions'];
 export default function Admin() {
   const [tab, setTab] = useState('Overview');
   return (
-    <div className="container page">
+    <div className="site-container page">
       <div className="page-head"><h1 style={{ fontSize: '2rem' }}>Admin panel</h1></div>
       <div className="tabs" role="tablist">
         {TABS.map((t) => <button key={t} role="tab" aria-selected={tab === t} className={`tab${tab === t ? ' active' : ''}`} onClick={() => setTab(t)}>{t}</button>)}

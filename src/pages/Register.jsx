@@ -5,6 +5,10 @@ import { useToast } from '../context/ToastContext.jsx';
 import { Field, TagInput } from '../components/Field.jsx';
 import { SIGNUP_BONUS } from '../domain/constants.js';
 import { errorMessage } from '../utils/messages.js';
+import AuthLayout from '../components/ui/AuthLayout.jsx';
+import TextField from '../components/ui/TextField.jsx';
+import Button from '../components/ui/Button.jsx';
+import { UserIcon, MailIcon, LockIcon } from '../components/ui/AuthIcons.jsx';
 
 export default function Register() {
   const { user, register } = useAuth();
@@ -35,25 +39,60 @@ export default function Register() {
   }
 
   return (
-    <div className="container page">
-      <form className="card form-card" onSubmit={submit} noValidate>
-        <h2>Create your account</h2>
-        <p className="muted">You get {SIGNUP_BONUS} free Skill Tokens when you join.</p>
-        <Field label="Full name" id="name" error={errors.name}>
-          <input id="name" className={`input${errors.name ? ' invalid' : ''}`} value={form.name} onChange={set('name')} autoComplete="name" />
-        </Field>
-        <Field label="Email" id="email" error={errors.email}>
-          <input id="email" type="email" className={`input${errors.email ? ' invalid' : ''}`} value={form.email} onChange={set('email')} autoComplete="email" />
-        </Field>
-        <Field label="Password" id="password" error={errors.password} hint="At least 6 characters.">
-          <input id="password" type="password" className={`input${errors.password ? ' invalid' : ''}`} value={form.password} onChange={set('password')} autoComplete="new-password" />
-        </Field>
+    <AuthLayout
+      title="Create your account"
+      subtitle={`You get ${SIGNUP_BONUS} free Skill Tokens when you join.`}
+      footer={
+        <>
+          Already registered?{' '}
+          <Link to="/login" className="font-semibold text-brand hover:underline">
+            Log in
+          </Link>
+        </>
+      }
+    >
+      <form onSubmit={submit} noValidate className="space-y-4">
+        <TextField
+          label="Full name"
+          icon={<UserIcon />}
+          autoComplete="name"
+          value={form.name}
+          onChange={set('name')}
+          error={errors.name}
+        />
+        <TextField
+          label="Email"
+          type="email"
+          icon={<MailIcon />}
+          autoComplete="email"
+          value={form.email}
+          onChange={set('email')}
+          error={errors.email}
+        />
+        <TextField
+          label="Password"
+          type="password"
+          icon={<LockIcon />}
+          autoComplete="new-password"
+          hint="At least 6 characters."
+          value={form.password}
+          onChange={set('password')}
+          error={errors.password}
+        />
+
+        {/* Still the old Field + TagInput. We restyle these in a later phase. */}
         <Field label="Your skills (optional)" id="skills" hint="For example: Python, Figma, SQL.">
-          <TagInput id="skills" value={form.skills} onChange={(skills) => setForm({ ...form, skills })} />
+          <TagInput
+            id="skills"
+            value={form.skills}
+            onChange={(skills) => setForm({ ...form, skills })}
+          />
         </Field>
-        <button className="btn btn-primary" disabled={busy}>{busy ? 'Creating account...' : 'Create account'}</button>
-        <p className="muted small" style={{ marginTop: '1rem' }}>Already registered? <Link to="/login">Log in</Link></p>
+
+        <Button type="submit" loading={busy} className="w-full">
+          {busy ? 'Creating account...' : 'Create account'}
+        </Button>
       </form>
-    </div>
+    </AuthLayout>
   );
 }
