@@ -3,6 +3,7 @@ import { getFileBlob } from '../services/fileService.js';
 import { useToast } from '../context/ToastContext.jsx';
 import { formatBytes } from '../utils/format.js';
 import { errorMessage } from '../utils/messages.js';
+import Btn from './ui/Btn.jsx';
 
 // Shows the files a provider attached: image previews + download buttons.
 export default function SubmissionFiles({ files }) {
@@ -44,15 +45,15 @@ export default function SubmissionFiles({ files }) {
 
   if (!files.length) return null;
   return (
-    <div style={{ marginBottom: '.75rem' }}>
-      <strong className="small">Attached files ({files.length})</strong>
-      <ul className="file-list">
+    <div className="mb-4">
+      <strong className="mb-2 block text-sm font-bold text-[#344054]">Attached files ({files.length})</strong>
+      <ul className="m-0 list-none divide-y divide-[#edf1f2] rounded-xl border border-[#e1e8e9] p-0">
         {files.map((f) => (
-          <li key={f.id}>
-            {previews[f.id] && <img src={previews[f.id]} alt="" className="file-thumb" />}
-            <span className="file-name">{f.name}</span>
-            <span className="muted small">{formatBytes(f.size)}</span>
-            <button type="button" className="btn btn-ghost btn-sm" onClick={() => download(f)}>Download</button>
+          <li key={f.id} className="flex flex-wrap items-center gap-3 p-3">
+            {previews[f.id] && <img src={previews[f.id]} alt="" className="h-11 w-11 flex-none rounded-lg border border-[#e1e8e9] object-cover" />}
+            <span className="min-w-0 flex-1 break-all text-sm font-medium text-[#344054]">{f.name}</span>
+            <span className="text-xs text-[#7b8494]">{formatBytes(f.size)}</span>
+            <Btn type="button" size="sm" variant="ghost" className="rounded-lg" onClick={() => download(f)}>Download</Btn>
           </li>
         ))}
       </ul>
