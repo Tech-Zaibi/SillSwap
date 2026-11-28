@@ -13,7 +13,7 @@ import admin from '../assets/icons/admin.svg.svg';
 
 const ICONS = { dashboard, browse, tasks, wallet, bell, plus, logout, admin };
 
-export default function Icon({ name, className = '' }) {
+export default function Icon({ name }) {
   const url = `url("${ICONS[name]}")`;
-  return <span className={`icon ${className}`} style={{ WebkitMaskImage: url, maskImage: url }} aria-hidden="true" />;
+  return <span className="icon" style={{ WebkitMaskImage: url, maskImage: url }} aria-hidden="true" />;
 }

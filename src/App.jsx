@@ -28,8 +28,8 @@ function Layout() {
           <Outlet />
         </div>
       </main>
-      <footer className="footer border-t border-[#e1e8e9] bg-white py-6 text-sm text-[#667085]">
-        <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">&copy; {new Date().getFullYear()} SkillSwap. All rights reserved. Tokens here are virtual and have no cash value.</div>
+      <footer className="footer">
+        <div className="site-container">&copy; {new Date().getFullYear()} SkillSwap. All rights reserved. Tokens here are virtual and have no cash value.</div>
       </footer>
     </>
   );

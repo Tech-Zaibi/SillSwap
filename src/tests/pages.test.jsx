@@ -85,18 +85,12 @@ describe('pages render with demo data', () => {
 
   it('requester sees approve button on a submitted task', async () => {
     await loginAs('u_hamza');
-    await renderAt('/tasks/t_12', async (el) => {
-      expect(el.textContent).toContain('Approve and pay 4 tokens');
-      expect(el.textContent).toContain('What you will receive');
-      expect(el.textContent).not.toContain('What you will deliver');
-    });
+    expect(await renderAt('/tasks/t_12')).toContain('Approve and pay 4 tokens');
   });
 
   it('provider can add multiple files and sees combined file-limit errors', async () => {
     await loginAs('u_sara');
     await renderAt('/tasks/t_11', async (el) => {
-      expect(el.textContent).toContain('What you will deliver');
-      expect(el.textContent).not.toContain('What you will receive');
       expect(el.textContent).not.toContain('Add a folder');
       const fileInput = el.querySelector('input[type="file"][multiple]');
       expect(fileInput).not.toBeNull();

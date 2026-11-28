@@ -51,7 +51,7 @@ export default function Admin() {
           <Tabs tabs={TABS} active={tab} onChange={setTab} />
         </div>
 
-        <div key={tab} className="page-content-enter">
+        <div key={tab} className="admin-page-enter">
           {tab === 'Overview' && <Overview onNavigate={setTab} />}
           {tab === 'Users' && <Users />}
           {tab === 'Tasks' && <AllTasks />}

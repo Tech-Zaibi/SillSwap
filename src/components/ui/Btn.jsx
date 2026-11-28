@@ -13,7 +13,7 @@ export default function Btn({ variant = 'primary', size = 'md', className = '', 
   return (
     <button
       type={type}
-      className={`inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg font-semibold transition active:translate-y-px disabled:cursor-not-allowed disabled:opacity-55 ${VARIANTS[variant]} ${SIZES[size]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition active:translate-y-px disabled:cursor-not-allowed disabled:opacity-55 ${VARIANTS[variant]} ${SIZES[size]} ${className}`}
       {...props}
     />
   );

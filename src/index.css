@@ -28,11 +28,11 @@
 }
 
 @layer components {
-  .page-content-enter {
-    animation: page-content-enter 360ms ease-out both;
+  .admin-page-enter {
+    animation: admin-page-enter 360ms ease-out both;
   }
 
-  @keyframes page-content-enter {
+  @keyframes admin-page-enter {
     from {
       opacity: 0;
       transform: translateY(12px);
