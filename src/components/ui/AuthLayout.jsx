@@ -22,7 +22,7 @@ function Logo({ dark = false }) {
 
 export default function AuthLayout({ title, subtitle, footer, children }) {
   return (
-    <section className="auth-page">
+    <section className="flex min-h-[78vh] items-center justify-center bg-[#edf5f4] [background-image:radial-gradient(ellipse_at_12%_18%,rgb(14_138_125_/_13%),transparent_34%),radial-gradient(ellipse_at_88%_82%,rgb(232_165_0_/_12%),transparent_30%),linear-gradient(135deg,#edf5f4,#f3f5fa_58%,#fbf7ef)]">
       <div className="mx-auto w-full max-w-5xl px-4 py-2 sm:py-4">
         <div className="auth-card grid overflow-hidden rounded-3xl border border-line bg-white shadow-xl shadow-ink/10 lg:grid-cols-5">
           {/* Brand panel (hidden on phones) */}
