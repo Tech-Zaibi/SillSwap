@@ -35,22 +35,22 @@ export default function Navbar() {
           {user?.role === 'user' && (
             <>
               <NavLink to="/dashboard" aria-label="Dashboard" className={({ isActive }) => `inline-flex items-center gap-2 rounded-xl px-2.5 py-2 text-sm font-semibold no-underline transition hover:bg-white/10 ${isActive ? 'bg-white/15 text-white' : 'text-white/75 hover:text-white'}`}>
-                <Icon name="dashboard" className="h-4 w-4" /><span className="nav-label sr-only lg:not-sr-only">Dashboard</span>
+                <Icon name="dashboard" className="h-4 w-4" /><span className="sr-only lg:not-sr-only">Dashboard</span>
               </NavLink>
               <NavLink to="/tasks" end aria-label="Browse tasks" className={({ isActive }) => `inline-flex items-center gap-2 rounded-xl px-2.5 py-2 text-sm font-semibold no-underline transition hover:bg-white/10 ${isActive ? 'bg-white/15 text-white' : 'text-white/75 hover:text-white'}`}>
-                <Icon name="browse" className="h-4 w-4" /><span className="nav-label sr-only lg:not-sr-only">Browse tasks</span>
+                <Icon name="browse" className="h-4 w-4" /><span className="sr-only lg:not-sr-only">Browse tasks</span>
               </NavLink>
               <NavLink to="/my-tasks" aria-label="My tasks" className={({ isActive }) => `inline-flex items-center gap-2 rounded-xl px-2.5 py-2 text-sm font-semibold no-underline transition hover:bg-white/10 ${isActive ? 'bg-white/15 text-white' : 'text-white/75 hover:text-white'}`}>
-                <Icon name="tasks" className="h-4 w-4" /><span className="nav-label sr-only lg:not-sr-only">My tasks</span>
+                <Icon name="tasks" className="h-4 w-4" /><span className="sr-only lg:not-sr-only">My tasks</span>
               </NavLink>
               <NavLink to="/wallet" aria-label="Wallet" className={({ isActive }) => `inline-flex items-center gap-2 rounded-xl px-2.5 py-2 text-sm font-semibold no-underline transition hover:bg-white/10 ${isActive ? 'bg-white/15 text-white' : 'text-white/75 hover:text-white'}`}>
-                <Icon name="wallet" className="h-4 w-4" /><span className="nav-label sr-only lg:not-sr-only">Wallet</span>
+                <Icon name="wallet" className="h-4 w-4" /><span className="sr-only lg:not-sr-only">Wallet</span>
               </NavLink>
             </>
           )}
           {user?.role === 'admin' && (
             <NavLink to="/admin" aria-label="Admin" className={({ isActive }) => `inline-flex items-center gap-2 rounded-xl px-2.5 py-2 text-sm font-semibold no-underline transition hover:bg-white/10 ${isActive ? 'bg-white/15 text-white' : 'text-white/75 hover:text-white'}`}>
-              <Icon name="admin" className="h-4 w-4" /><span className="nav-label sr-only lg:not-sr-only">Admin</span>
+              <Icon name="admin" className="h-4 w-4" /><span className="sr-only lg:not-sr-only">Admin</span>
             </NavLink>
           )}
           {user && (
@@ -60,7 +60,7 @@ export default function Navbar() {
               aria-label={`Notifications, ${unread} unread`}
             >
               <Icon name="bell" className="h-4 w-4" />
-              <span className="nav-label sr-only lg:not-sr-only">Alerts</span>
+              <span className="sr-only lg:not-sr-only">Alerts</span>
               {unread > 0 && <span className="absolute -right-1 -top-1 grid min-h-4 min-w-4 place-items-center rounded-full bg-[#c8442b] px-1 text-[10px] font-bold text-white">{unread}</span>}
             </NavLink>
           )}

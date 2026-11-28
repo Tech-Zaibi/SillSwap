@@ -1,8 +1,4 @@
-@layer theme, base, legacy, components, utilities;
-
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/utilities.css" layer(utilities);
-@import "./legacy.css" layer(legacy);
+@import "tailwindcss";
 
 @theme {
   --color-ink: #19233b;
@@ -27,7 +23,50 @@
   }
 }
 
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply m-0 bg-paper font-sans text-base leading-[1.55] text-ink;
+  }
+
+  h1, h2, h3 {
+    @apply mb-2 font-display leading-[1.15] tracking-[-0.01em];
+  }
+
+  h1 {
+    @apply text-[clamp(2rem,5vw,3.2rem)] font-extrabold;
+  }
+
+  h2 {
+    @apply text-2xl font-bold;
+  }
+
+  h3 {
+    @apply text-[1.1rem] font-bold;
+  }
+
+  p {
+    @apply mb-3;
+  }
+
+  a {
+    @apply text-brand-dark;
+  }
+
+  :focus-visible {
+    @apply outline-[3px] outline-gold outline-offset-2;
+  }
+}
+
 @layer components {
+  @keyframes flow {
+    to {
+      background-position: 10px 0;
+    }
+  }
   .page-content-enter {
     animation: page-content-enter 360ms ease-out both;
   }
@@ -58,18 +97,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
-
-  .auth-page {
-    display: flex;
-    min-height: 78vh;
-    align-items: center;
-    justify-content: center;
-    background-color: #edf5f4;
-    background-image:
-      radial-gradient(ellipse at 12% 18%, rgb(14 138 125 / 13%), transparent 34%),
-      radial-gradient(ellipse at 88% 82%, rgb(232 165 0 / 12%), transparent 30%),
-      linear-gradient(135deg, #edf5f4, #f3f5fa 58%, #fbf7ef);
   }
 
   .auth-card {

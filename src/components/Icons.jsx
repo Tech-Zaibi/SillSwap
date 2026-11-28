@@ -15,5 +15,11 @@ const ICONS = { dashboard, browse, tasks, wallet, bell, plus, logout, admin };
 
 export default function Icon({ name, className = '' }) {
   const url = `url("${ICONS[name]}")`;
-  return <span className={`icon ${className}`} style={{ WebkitMaskImage: url, maskImage: url }} aria-hidden="true" />;
+  return (
+    <span
+      className={`inline-block flex-none bg-current [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain] [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center] [-webkit-mask-size:contain] ${className || 'h-5 w-5'}`}
+      style={{ WebkitMaskImage: url, maskImage: url }}
+      aria-hidden="true"
+    />
+  );
 }
