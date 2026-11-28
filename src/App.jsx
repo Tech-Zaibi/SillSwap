@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet } from 'react-router-dom';
+import { Routes, Route, Outlet, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Landing from './pages/Landing.jsx';
@@ -18,12 +18,18 @@ import NotFound from './pages/NotFound.jsx';
 
 // Every page shares the same navbar and footer.
 function Layout() {
+  const location = useLocation();
+
   return (
     <>
       <Navbar />
-      <main><Outlet /></main>
+      <main>
+        <div key={location.key} className="route-transition">
+          <Outlet />
+        </div>
+      </main>
       <footer className="footer">
-        <div className="site-container">SkillSwap: a software construction lab project. Tokens here are virtual and have no cash value.</div>
+        <div className="site-container">&copy; {new Date().getFullYear()} SkillSwap. All rights reserved. Tokens here are virtual and have no cash value.</div>
       </footer>
     </>
   );

@@ -42,6 +42,23 @@ describe('pages render with demo data', () => {
     expect(await renderAt('/wallet')).toContain('Log in');
   });
 
+  it('redirects logged-in members and admins from login to the landing page', async () => {
+    const accounts = [
+      { userId: 'u_ali', dashboard: '/dashboard' },
+      { userId: 'u_admin', dashboard: '/admin' },
+    ];
+
+    for (const account of accounts) {
+      await loginAs(account.userId);
+      await renderAt('/login', async (el) => {
+        expect(el.querySelector('.hero h1')?.textContent).toContain('Get help with your skills');
+        expect(el.querySelector('.hero a.btn')?.getAttribute('href')).toBe(account.dashboard);
+        expect(el.querySelector(`.nav-links a[href="${account.dashboard}"]`)).not.toBeNull();
+      });
+      logout();
+    }
+  });
+
   it('member pages', async () => {
     await loginAs('u_ali');
     const checks = {

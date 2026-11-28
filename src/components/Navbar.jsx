@@ -28,7 +28,7 @@ export default function Navbar() {
     <header className="navbar">
       <div className="site-container">
         <Link to="/" className="brand"><span className="brand-coin" />SkillSwap</Link>
-        <nav className="nav-links" aria-label="Main">
+        <nav key={`${location.pathname}-${user?.role || 'guest'}`} className="nav-links" aria-label="Main">
           {user?.role === 'user' && (
             <>
               <NavLink to="/dashboard"><Icon name="dashboard" /><span className="nav-label">Dashboard</span></NavLink>

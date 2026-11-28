@@ -51,7 +51,7 @@ export default function Register() {
         </>
       }
     >
-      <form onSubmit={submit} noValidate className="space-y-4">
+      <form onSubmit={submit} noValidate className="auth-form space-y-2.5">
         <TextField
           label="Full name"
           icon={<UserIcon />}
