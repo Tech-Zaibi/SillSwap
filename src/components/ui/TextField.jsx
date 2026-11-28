@@ -17,7 +17,7 @@ export default function TextField({
 
   return (
     <div className={className}>
-      <label htmlFor={id} className="mb-1.5 block text-sm font-medium text-ink">
+      <label htmlFor={id} className="mb-1 block text-sm font-medium text-ink">
         {label}
       </label>
       <div className="relative">
@@ -31,7 +31,7 @@ export default function TextField({
           type={isPassword && show ? 'text' : type}
           aria-invalid={error ? 'true' : undefined}
           aria-describedby={messageId}
-          className={`block w-full rounded-xl border bg-white py-3 text-sm text-ink placeholder:text-muted/70 focus:outline-none focus:ring-4 ${
+          className={`block w-full rounded-xl border bg-white py-2.5 text-sm text-ink placeholder:text-muted/70 focus:outline-none focus:ring-4 ${
             icon ? 'pl-11' : 'pl-3.5'
           } ${isPassword ? 'pr-11' : 'pr-3.5'} ${
             error
@@ -52,9 +52,9 @@ export default function TextField({
         )}
       </div>
       {error ? (
-        <p id={messageId} className="mt-1.5 text-sm text-coral">{error}</p>
+        <p id={messageId} className="mt-1 text-sm text-coral">{error}</p>
       ) : hint ? (
-        <p id={messageId} className="mt-1.5 text-sm text-muted">{hint}</p>
+        <p id={messageId} className="mt-1 text-sm text-muted">{hint}</p>
       ) : null}
     </div>
   );

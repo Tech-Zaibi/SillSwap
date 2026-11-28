@@ -107,6 +107,8 @@ a { color: var(--teal-dark); }
 
 /* ---------- forms ---------- */
 .field { display: flex; flex-direction: column; gap: .3rem; margin-bottom: 1rem; }
+.auth-form .field { margin-bottom: 0; }
+.auth-form .field .input { padding-block: .45rem; }
 .field label { font-weight: 600; font-size: .92rem; }
 .input, select.input, textarea.input { width: 100%; padding: .6rem .75rem; border: 1px solid #c3cad6; border-radius: 8px; font: inherit; background: #fff; color: var(--ink); }
 textarea.input { min-height: 110px; resize: vertical; }

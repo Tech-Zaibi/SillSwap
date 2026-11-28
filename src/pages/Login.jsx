@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useToast } from '../context/ToastContext.jsx';
 import { errorMessage } from '../utils/messages.js';
@@ -11,13 +11,12 @@ import { MailIcon, LockIcon } from '../components/ui/AuthIcons.jsx';
 export default function Login() {
   const { user, login } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
   const toast = useToast();
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
 
-  if (user) return <Navigate to={user.getDashboardRoute()} replace />;
+  if (user) return <Navigate to="/" replace />;
 
   async function submit(e) {
     e.preventDefault();
@@ -26,7 +25,7 @@ export default function Login() {
     try {
       const u = await login(form.email, form.password);
       toast(`Welcome back, ${u.name.split(' ')[0]}.`, 'success');
-      navigate(location.state?.from || u.getDashboardRoute(), { replace: true });
+      navigate('/', { replace: true });
     } catch (err) {
       setError(errorMessage(err));
     } finally {
@@ -53,7 +52,7 @@ export default function Login() {
         </div>
       )}
 
-      <form onSubmit={submit} noValidate className="space-y-4">
+      <form onSubmit={submit} noValidate className="auth-form space-y-2.5">
         <TextField
           label="Email"
           type="email"
@@ -75,7 +74,7 @@ export default function Login() {
         </Button>
       </form>
 
-      <div className="mt-5 rounded-lg border border-brand/20 bg-brand/5 p-3 text-sm text-ink">
+      <div className="mt-3 rounded-lg border border-brand/20 bg-brand/5 p-2.5 text-xs text-ink sm:text-sm">
         <p className="font-semibold">Demo accounts</p>
         <p className="mt-1 text-muted">Member: ali@demo.com / password123</p>
         <p className="text-muted">Admin: admin@skillswap.com / admin123</p>
